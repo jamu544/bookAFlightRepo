@@ -9,6 +9,15 @@
     android:background="#C3C3C3"
     android:layout_margin="10dp"
    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tvID"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textColor="#121212"
+        android:gravity="left"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -17,15 +26,34 @@
         android:padding="5dp"
         android:textStyle="bold"
         android:textColor="#121212"
+        android:gravity="left"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/tvBasePrice"
+        android:id="@+id/tvPrice"
         android:padding="5dp"
         android:textColor="#121212"
         />
+    <Button
+        android:id="@+id/btBooking"
+        android:text="BOOK"
+        android:gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btUpdate"
+        android:text="UPDATE"
+        android:gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btDelete"
+        android:text="DELETE"
+        android:gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

@@ -2,11 +2,12 @@ package android.com.jumpco.io.bookaflightapp.viewmodels;
 
 import android.com.jumpco.io.bookaflightapp.R;
 import android.com.jumpco.io.bookaflightapp.model.Airline;
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,12 +15,17 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AirlineAdapter extends RecyclerView.Adapter<AirlineAdapter.ViewHolder>{
+public class AirlineRecyclerViewAdapter extends RecyclerView.Adapter<AirlineRecyclerViewAdapter.ViewHolder>{
 
     private List<Airline> itemList;
   //  private ClickListener clickListener;
+    private Context context;
+    private int listLayout;
 
- //   AirlineAdapter()
+    public AirlineRecyclerViewAdapter(int layoutId, List<Airline>airlines){
+       listLayout = layoutId;
+        this.itemList = airlines;
+    }
 
     /**
      * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
@@ -42,40 +48,52 @@ public class AirlineAdapter extends RecyclerView.Adapter<AirlineAdapter.ViewHold
      * @see #onBindViewHolder(ViewHolder, int)
      */
     @NonNull
-    @Override
+    @Override // specify the row layout file and click for each row
     public ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.item_row,parent,false);
 
-
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  AirlineAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull  AirlineRecyclerViewAdapter.ViewHolder holder, int position) {
         final  Airline item = itemList.get(position);
         holder.name.setText(item.getNameOfAirline());
-       // holder.price.setText(item.getBasePriceForPerson(String.valueOf(item.getBasePriceForPerson())));
+        holder.price.setText(String.valueOf(item.getBasePriceForPerson()));
+        holder.id.setText(String.valueOf(item.getId()));
+//        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(view.getContext(),
+//                        "click on item: "+item.getNameOfAirline(),
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
-    /**
-     * Returns the total number of items in the data set held by the adapter.
-     *
-     * @return The total number of items in this adapter.
-     */
+
+    // get the size of the List
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return itemList == null ? 0 : itemList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView name,price;
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+        public TextView name,price,id;
         private LinearLayout itemLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             name = itemView.findViewById(R.id.tvAirlineName);
-            price = itemView.findViewById(R.id.tvBasePrice);
-            itemView = itemLayout.findViewById(R.id.itemLayout);
+            price = itemView.findViewById(R.id.tvPrice);
+            id = itemView.findViewById(R.id.tvID);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("onclick", "onClick " + getLayoutPosition() + " " + name.getText()+" "+price.getText()+" "+id.getText());
         }
     }
 }

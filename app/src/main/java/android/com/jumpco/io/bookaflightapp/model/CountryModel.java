@@ -1,6 +1,6 @@
 package android.com.jumpco.io.bookaflightapp.model;
 
-public class Destination {
+public class CountryModel {
 
     private int id;
     private String nameOfStation;

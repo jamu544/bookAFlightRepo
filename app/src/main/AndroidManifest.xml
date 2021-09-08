@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookAFlightApp">
-        <activity android:name=".views.SplashScreenActivity"></activity>
-        <activity android:name=".views.MainActivity">
+        <activity android:name=".views.BookingFormActivity"></activity>
+        <activity android:name=".views.SplashScreenActivity" />
+        <activity android:name=".views.AirlineListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

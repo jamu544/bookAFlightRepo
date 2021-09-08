@@ -4,8 +4,9 @@ public class Airline {
     private int id;
     private String nameOfAirline;
     private long basePriceForPerson;
+    private boolean isBooked;
 
-    public Airline(int id, String nameOfAirline, long basePriceForPerson) {
+    public Airline(int id,String nameOfAirline,long basePriceForPerson) {
         this.id = id;
         this.nameOfAirline = nameOfAirline;
         this.basePriceForPerson = basePriceForPerson;
