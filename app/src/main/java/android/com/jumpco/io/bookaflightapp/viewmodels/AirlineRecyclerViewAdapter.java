@@ -2,7 +2,10 @@ package android.com.jumpco.io.bookaflightapp.viewmodels;
 
 import android.com.jumpco.io.bookaflightapp.R;
 import android.com.jumpco.io.bookaflightapp.model.Airline;
+import android.com.jumpco.io.bookaflightapp.views.AirlineListActivity;
+import android.com.jumpco.io.bookaflightapp.views.BookingFormActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +25,10 @@ public class AirlineRecyclerViewAdapter extends RecyclerView.Adapter<AirlineRecy
     private Context context;
     private int listLayout;
 
-    public AirlineRecyclerViewAdapter(int layoutId, List<Airline>airlines){
+    public AirlineRecyclerViewAdapter(Context context,int layoutId, List<Airline>airlines){
        listLayout = layoutId;
         this.itemList = airlines;
+        this.context = context;
     }
 
     /**
@@ -93,6 +97,14 @@ public class AirlineRecyclerViewAdapter extends RecyclerView.Adapter<AirlineRecy
 
         @Override
         public void onClick(View view) {
+
+            Intent i = new Intent(context, BookingFormActivity.class);
+            i.putExtra("nameOfAirline", "Qatar");
+            i.putExtra("basePricePerPerson", 500);
+            context.startActivity(i);
+
+
+
             Log.d("onclick", "onClick " + getLayoutPosition() + " " + name.getText()+" "+price.getText()+" "+id.getText());
         }
     }

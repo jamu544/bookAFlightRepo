@@ -27,16 +27,17 @@ public class AirlineListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Initializing list view with the custom adapter
+        context = this;
          itemList = new ArrayList<Airline>();
 
-        itemArrayAdapter = new AirlineRecyclerViewAdapter(R.layout.item_row, initArlines());
+        itemArrayAdapter = new AirlineRecyclerViewAdapter(context,R.layout.item_row, initArlines());
         recyclerView = (RecyclerView) findViewById(R.id.airlineRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(itemArrayAdapter);
 
 
-//        context = this;
+//
 //        recyclerView = (RecyclerView)findViewById(R.id.airlineRecyclerView);
 //
 //        ArrayList<Airline> itemList = new ArrayList<Airline>();
