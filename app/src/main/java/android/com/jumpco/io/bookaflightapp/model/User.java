@@ -1,7 +1,8 @@
 package android.com.jumpco.io.bookaflightapp.model;
 
 public class User {
-   // private String title;
+    private int id;
+    private String title;
     private String firstName;
     private String lastName;
     private String phoneNumber;

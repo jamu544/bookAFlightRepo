@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable name="airline"
+            type="android.com.jumpco.io.bookaflightapp.model.Airline" />
+
+        <variable name="itemClickListener"
+            type="android.com.jumpco.io.bookaflightapp.interfaces.CustomClickListener" />
+
+    </data>
+
+
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,6 +30,7 @@
         android:textStyle="bold"
         android:textColor="#121212"
         android:gravity="left"
+        android:text="@{airline.id}"
         />
 
     <TextView
@@ -27,6 +41,7 @@
         android:textStyle="bold"
         android:textColor="#121212"
         android:gravity="left"
+        android:text="@{airline.nameOfAirline}"
         />
 
     <TextView
@@ -35,12 +50,14 @@
         android:id="@+id/tvPrice"
         android:padding="5dp"
         android:textColor="#121212"
+        android:text="@{airline.basePriceForPerson}"
         />
     <Button
         android:id="@+id/btBooking"
         android:text="BOOK"
         android:gravity="right"
         android:layout_width="wrap_content"
+        android:onClick="@{() -> itemClickListener.buttonClicked(airline)}"
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btUpdate"
@@ -57,3 +74,4 @@
 
 
 </LinearLayout>
+</layout>
