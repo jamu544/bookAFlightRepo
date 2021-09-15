@@ -1,4 +1,4 @@
-package android.com.jumpco.io.bookaflightapp.interfaces;
+package android.com.jumpco.io.bookaflightapp.handlers;
 
 import android.com.jumpco.io.bookaflightapp.model.Airline;
 

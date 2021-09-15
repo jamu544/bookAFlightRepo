@@ -1,13 +1,23 @@
 package android.com.jumpco.io.bookaflightapp.model;
 
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Airline {
-    public String id;
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    public int id;
     public String nameOfAirline;
-    public String basePriceForPerson;
+    public int basePriceForPerson;
     public boolean isBooked;
     public boolean isDeleted;
 
-    public Airline(String id, String nameOfAirline, String basePriceForPerson, boolean isBooked, boolean isDeleted) {
+    @Ignore
+    public Airline(int id, String nameOfAirline, int basePriceForPerson, boolean isBooked, boolean isDeleted) {
         this.id = id;
         this.nameOfAirline = nameOfAirline;
         this.basePriceForPerson = basePriceForPerson;
@@ -31,13 +41,13 @@ public class Airline {
         isDeleted = deleted;
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNameOfAirline() {
         return nameOfAirline;
@@ -47,11 +57,11 @@ public class Airline {
         this.nameOfAirline = nameOfAirline;
     }
 
-//    public int getBasePriceForPerson() {
-//        return basePriceForPerson;
-//    }
-//
-//    public void setBasePriceForPerson(int basePriceForPerson) {
-//        this.basePriceForPerson = basePriceForPerson;
-//    }
+    public int getBasePriceForPerson() {
+        return basePriceForPerson;
+    }
+
+    public void setBasePriceForPerson(int basePriceForPerson) {
+        this.basePriceForPerson = basePriceForPerson;
+    }
 }

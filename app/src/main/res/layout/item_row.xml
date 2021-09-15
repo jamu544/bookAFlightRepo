@@ -7,7 +7,7 @@
             type="android.com.jumpco.io.bookaflightapp.model.Airline" />
 
         <variable name="itemClickListener"
-            type="android.com.jumpco.io.bookaflightapp.interfaces.CustomClickListener" />
+            type="android.com.jumpco.io.bookaflightapp.handlers.CustomClickListener" />
 
     </data>
 
